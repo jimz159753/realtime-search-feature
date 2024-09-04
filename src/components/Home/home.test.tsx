@@ -9,11 +9,11 @@ test('it displays the result of the input', () => {
 
     // Get the input and output elements
     const inputElement = screen.getByPlaceholderText('username');
-    const outputElement = screen.getByTestId('items');
 
     // Simulate user typing
-    fireEvent.change(inputElement, { target: { value: 'Hello, World!' } });
+    fireEvent.change(inputElement, { target: { value: 'Samantha' } });
 
-    // Assert that the output paragraph displays the input value
-    expect(outputElement).toHaveTextContent('Hello, World!');
+    const output = screen.getByText('Username: Samantha')
+
+    expect(output).toBeInTheDocument()
 });
